@@ -49,6 +49,10 @@
       this._formCreate();
     }
     
+    /**
+    * Навешивает обработчик при отправке
+    * @param {function} callback на выполнение обработчика
+    */
 	onSubmit(cb) {
       this.formNode.input.addEventListener("click", () => {
         cb();
@@ -56,21 +60,32 @@
       });
       
 	}
-    // methods
     
+    /**
+    * Получить данные о пользователе, сообщении и времени отправки
+    * @param {class}
+    * @returns {{string, string, string}}
+    */ 
     getData(user) {
       let text = this.formNode.textarea.value;
       return {
-        message: text,
+        message: text.replace(/\n/g, "<br />"),
         username: user.name,
         submitted: this._getDate()
       };
     }
     
+    /**
+    * Очистка текстового поля ввода сообщения
+    */
     _clearTextarea() {
       this.formNode.textarea.value = null;
     }
     
+    /**
+    * Получить данные о времени отправки в формате locale
+    * @returns {string}
+    */
     _getDate() {
       let options = {hour: "2-digit", minute: "2-digit", second: "2-digit"};
       let date = new Date();

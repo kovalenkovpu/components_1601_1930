@@ -19,15 +19,18 @@
     * @param {ChatMessage} data
     */
     addMessage(data) {
-      if (data.message) this.el.innerHTML += 
+      if (data.message) {
+        this.el.innerHTML += 
           `<p><b>${data.username}</b>: <span class="message-date">${data.submitted}</span><br>${data.message}</p>`;
+        this.el.scrollTop = this.el.scrollHeight;
+      }
     }
     
-    onScrollStart (cb) {
+    onScrollStart(cb) {
       
     }
     
-    onScrollEnd (cb) {
+    onScrollEnd(cb) {
       
     }
     
