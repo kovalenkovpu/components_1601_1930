@@ -3,7 +3,6 @@
     
   /**
   * @typedef {Object} ChatMessage
-  *
   * @property {string} text - Текст сообщения
   * @property {string} email - Email отправителя сообщения
   */
@@ -20,8 +19,17 @@
     */
     addMessage(data) {
       if (data.message) {
-        this.el.innerHTML += 
-          `<p><b>${data.username}</b>: <span class="message-date">${data.submitted}</span><br>${data.message}</p>`;
+        this.el.innerHTML +=
+          `<div class="message">
+            <img class="message__avatar" src=${data.avatar}/>
+            <div class="message__time">${data.submitted}</div>
+            <div class="message__decor"></div>
+            <div class="message__text">
+              <div class="message__username">${data.username}</div>
+              <div class="message__data">${data.message}</div>
+            </div>
+          </div>`;
+
         this.el.scrollTop = this.el.scrollHeight;
       }
     }

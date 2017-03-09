@@ -69,6 +69,7 @@
     getData(user) {
       let text = this.formNode.textarea.value;
       return {
+        avatar: "http://i.imgur.com/nGmyY7w.jpg",
         message: text.replace(/\n/g, "<br />"),
         username: user.name,
         submitted: this._getDate()

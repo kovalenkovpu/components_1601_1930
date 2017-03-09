@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "hint": "jshint components/**/*.js"
+    "static": "./node_modules/.bin/static .",
+    "hint": "jshint components/app/app.js"
   },
   "keywords": [],
   "author": "Artsiom Mezin, Pavel Kovalenkov",
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "node-static": "^0.7.9",
+    "pug": "^2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }
