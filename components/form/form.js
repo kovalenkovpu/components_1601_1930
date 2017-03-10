@@ -61,7 +61,7 @@
      this.formNode.textarea.addEventListener("keypress", (event) => {
         if(event.shiftKey &&
            event.keyCode==13 &&
-           this.formNode.textarea.value)) {
+           this.formNode.textarea.value) {
           cb();
           this._clearTextarea.call(this);
         }
