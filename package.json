@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "static": "./node_modules/.bin/static .",
+    "start": "npm run pug_tmp && npm run serve",
+    "serve": "./node_modules/.bin/static .",
+    "pug_tmp": "pug --client components/chat/chat.pug --extension pug.js --name chat_tmp",
     "hint": "jshint components/app/app.js"
   },
   "keywords": [],

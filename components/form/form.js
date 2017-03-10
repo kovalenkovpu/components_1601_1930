@@ -14,7 +14,7 @@
       return {
         form: document.createElement("form"),
         fieldset: document.createElement("fieldset"),
-        label: document.createElement("label"),
+        //label: document.createElement("label"),
         textarea: document.createElement("textarea"),
         input: document.createElement("a")
       }
@@ -24,8 +24,8 @@
       this.formNode.form.classList.add("form");
       this.formNode.fieldset.classList.add("fieldset");
       
-      this.formNode.label.setAttribute("for", "commentField");
-      this.formNode.label.textContent = "Add message";
+      //this.formNode.label.setAttribute("for", "commentField");
+      //this.formNode.label.textContent = "Add message";
       
       this.formNode.textarea.setAttribute("id", "commentField");
       this.formNode.textarea.setAttribute("placeholder", "Введите сообщение");
@@ -39,7 +39,7 @@
       
       this.formNode.form.appendChild(this.formNode.fieldset);
       
-      this.formNode.fieldset.appendChild(this.formNode.label);
+      //this.formNode.fieldset.appendChild(this.formNode.label);
       this.formNode.fieldset.appendChild(this.formNode.textarea);
       this.formNode.fieldset.appendChild(this.formNode.input);
      }
@@ -67,10 +67,12 @@
     * @returns {{string, string, string}}
     */ 
     getData(user) {
-      let text = this.formNode.textarea.value;
+      let temp_text = this.formNode.textarea.value,
+          text = temp_text.replace(/\n/g, "<br />");
+      
       return {
         avatar: "http://i.imgur.com/nGmyY7w.jpg",
-        message: text.replace(/\n/g, "<br />"),
+        message: text,
         username: user.name,
         submitted: this._getDate()
       };

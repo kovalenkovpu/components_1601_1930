@@ -1,7 +1,7 @@
 div.message
-  img(class='message__avatar' src=data.avatar)
-  div.message__time
+  img(class='message__avatar' src=`${avatar}`)
+  div.message__time #{submitted}
   div.message__decor
   div.message__text
-    div.message__username
-    div.message__data
+    div.message__username #{username}
+    div.message__data #{message}

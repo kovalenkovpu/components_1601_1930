@@ -4,7 +4,7 @@ p {
 
 .chat {
   height: 500px;
-  margin: 2px;
+  margin: 0;
   padding: 10px;
   font-size: 12px;
   color: #000;

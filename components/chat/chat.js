@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-    
+  
+  const tmp = window.chat_tmp;
   /**
   * @typedef {Object} ChatMessage
   * @property {string} text - Текст сообщения
@@ -19,17 +20,8 @@
     */
     addMessage(data) {
       if (data.message) {
-        this.el.innerHTML +=
-          `<div class="message">
-            <img class="message__avatar" src=${data.avatar}/>
-            <div class="message__time">${data.submitted}</div>
-            <div class="message__decor"></div>
-            <div class="message__text">
-              <div class="message__username">${data.username}</div>
-              <div class="message__data">${data.message}</div>
-            </div>
-          </div>`;
-
+        
+        this.el.innerHTML += window.chat_tmp(data);
         this.el.scrollTop = this.el.scrollHeight;
       }
     }

@@ -37,7 +37,9 @@
     
 	_initMediate() {
 	  this.form.onSubmit( () => {
-	  	this.chat.addMessage(this.form.getData(this.user));
+        let data = this.form.getData(this.user);
+        
+	  	this.chat.addMessage(data);
 	  });
          
 	  this.chat.onScrollStart(() => {
