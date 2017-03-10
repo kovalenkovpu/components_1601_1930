@@ -35,6 +35,9 @@
       this.user = new User();
 	}
     
+    /**
+    * Логика работы между компонентами
+    */
 	_initMediate() {
 	  this.form.onSubmit( () => {
         let data = this.form.getData(this.user);
