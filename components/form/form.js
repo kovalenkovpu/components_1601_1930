@@ -14,9 +14,8 @@
       return {
         form: document.createElement("form"),
         fieldset: document.createElement("fieldset"),
-        //label: document.createElement("label"),
         textarea: document.createElement("textarea"),
-        input: document.createElement("a")
+        input: document.createElement("input")
       }
     }
     
@@ -24,14 +23,13 @@
       this.formNode.form.classList.add("form");
       this.formNode.fieldset.classList.add("fieldset");
       
-      //this.formNode.label.setAttribute("for", "commentField");
-      //this.formNode.label.textContent = "Add message";
-      
       this.formNode.textarea.setAttribute("id", "commentField");
       this.formNode.textarea.setAttribute("placeholder", "Введите сообщение");
       
       this.formNode.input.classList.add("button");
-      this.formNode.input.textContent = "Send";
+      this.formNode.input.setAttribute("type", "submit");
+      this.formNode.input.setAttribute("value", "Send");
+      //this.formNode.input.textContent = "Send";
     }
     
     _formCreate() {
@@ -54,11 +52,20 @@
     * @param {function} callback на выполнение обработчика
     */
 	onSubmit(cb) {
-      this.formNode.input.addEventListener("click", () => {
+      this.formNode.input.addEventListener("click", (event) => {
+        event.preventDefault();
         cb();
         this._clearTextarea.call(this);
       });
       
+     this.formNode.textarea.addEventListener("keypress", (event) => {
+        if(event.shiftKey &&
+           event.keyCode==13 &&
+           this.formNode.textarea.value)) {
+          cb();
+          this._clearTextarea.call(this);
+        }
+      });
 	}
     
     /**
