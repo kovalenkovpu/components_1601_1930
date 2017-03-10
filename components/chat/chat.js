@@ -1,9 +1,9 @@
 (function () {
   'use strict';
-    
+  
+  const tmp = window.chat_tmp;
   /**
   * @typedef {Object} ChatMessage
-  *
   * @property {string} text - Текст сообщения
   * @property {string} email - Email отправителя сообщения
   */
@@ -20,8 +20,8 @@
     */
     addMessage(data) {
       if (data.message) {
-        this.el.innerHTML += 
-          `<p><b>${data.username}</b>: <span class="message-date">${data.submitted}</span><br>${data.message}</p>`;
+        
+        this.el.innerHTML += window.chat_tmp(data);
         this.el.scrollTop = this.el.scrollHeight;
       }
     }

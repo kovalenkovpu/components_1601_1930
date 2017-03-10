@@ -7,8 +7,8 @@
     }
     
     _getName() {
-      let tempName = prompt("Введите имя пользователя");
-      
+    //let tempName = prompt("Введите имя пользователя");
+      let tempName = "Pavel";
       if (tempName === null) return "Anon";
       return tempName;
     }
