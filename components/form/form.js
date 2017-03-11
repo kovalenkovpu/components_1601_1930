@@ -1,50 +1,27 @@
 (function () {
   'use strict';
-
+  
+  const form_tmp = window.form_tmp;
+  
   class Form {
 	constructor(options) {
       this.el = options.el;
       
-      this.formNode = this._formElemsCreate();
-      
-      this._inits();
+      this.el.innerHTML = window.form_tmp();
+          
+      this.formNode = this._createFormComponents();
 	}
 	
-    _formElemsCreate() {
+    /**
+    * Создание компонент формы
+    */
+    _createFormComponents() {
       return {
-        form: document.createElement("form"),
-        fieldset: document.createElement("fieldset"),
-        textarea: document.createElement("textarea"),
-        input: document.createElement("input")
+        form: this.el.querySelector(".form"),
+        fieldset: this.el.querySelector(".fieldset"),
+        textarea: this.el.querySelector("textarea"),
+        input: this.el.querySelector(".button")
       }
-    }
-    
-    _setElemsAtts() {
-      this.formNode.form.classList.add("form");
-      this.formNode.fieldset.classList.add("fieldset");
-      
-      this.formNode.textarea.setAttribute("id", "commentField");
-      this.formNode.textarea.setAttribute("placeholder", "Введите сообщение");
-      
-      this.formNode.input.classList.add("button");
-      this.formNode.input.setAttribute("type", "submit");
-      this.formNode.input.setAttribute("value", "Send");
-      //this.formNode.input.textContent = "Send";
-    }
-    
-    _formCreate() {
-      this.el.appendChild(this.formNode.form);
-      
-      this.formNode.form.appendChild(this.formNode.fieldset);
-      
-      //this.formNode.fieldset.appendChild(this.formNode.label);
-      this.formNode.fieldset.appendChild(this.formNode.textarea);
-      this.formNode.fieldset.appendChild(this.formNode.input);
-     }
-    
-    _inits() {
-      this._setElemsAtts();
-      this._formCreate();
     }
     
     /**
@@ -52,13 +29,13 @@
     * @param {function} callback на выполнение обработчика
     */
 	onSubmit(cb) {
-      this.formNode.input.addEventListener("click", (event) => {
+      this.formNode.form.addEventListener("submit", (event) => {
         event.preventDefault();
         cb();
         this._clearTextarea.call(this);
       });
       
-     this.formNode.textarea.addEventListener("keypress", (event) => {
+      this.formNode.textarea.addEventListener("keypress", (event) => {
         if(event.shiftKey &&
            event.keyCode==13 &&
            this.formNode.textarea.value) {
@@ -75,10 +52,10 @@
     */ 
     getData(user) {
       let temp_text = this.formNode.textarea.value,
-          text = temp_text.replace(/\n/g, "<br />");
+          text = temp_text.replace(/\n/g, "<br/>");
       
       return {
-        avatar: "http://i.imgur.com/nGmyY7w.jpg",
+        avatar: "http://i.imgur.com/qktCpaO.jpg",
         message: text,
         username: user.name,
         submitted: this._getDate()

@@ -12,17 +12,15 @@
 	  this.el = options.el; 
          
 	  this._createComponents();
-	  this._initMediate();
-      
-      this.el.appendChild(this.wrapper.el);
-	  this.wrapper.el.appendChild(this.chat.el);
-	  this.wrapper.el.appendChild(this.form.el);
+	  this._renderComponents();
+      this._initMediate();
 	}
     
+    /**
+    * Создание компонент: обертка, чат, форма
+    */
 	_createComponents() {
-      this.wrapper = new Wrapper({
-	  	el: document.createElement('div')
-	  });
+      this.wrapper = new Wrapper();
       
       this.chat = new Chat({
 	  	el: document.createElement('div')
@@ -34,6 +32,14 @@
       
       this.user = new User();
 	}
+    
+    /**
+    * Рендер компонент
+    */
+    _renderComponents() {
+      this.wrapper.el.appendChild(this.chat.el);
+	  this.wrapper.el.appendChild(this.form.el);
+    }
     
     /**
     * Логика работы между компонентами

@@ -9,6 +9,7 @@ p {
   font-size: 12px;
   color: #000;
   border: 1px solid rgb(209, 209, 209);
+  border-bottom: 0;
   overflow-y: scroll;
 }
 
@@ -25,9 +26,9 @@ p {
 }
 
 .message__avatar {
-  height: 70px;
-  background-size: contain;
-  border-radius: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .message__time {
