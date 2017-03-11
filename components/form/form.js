@@ -13,7 +13,9 @@
 	}
 	
     /**
-    * Создание компонент формы
+    * Получение объекта с ключами - DOM-элементами формы
+    * @param {}
+    * @returns {object} ключи - DOM-элементы формы
     */
     _createFormComponents() {
       return {
@@ -35,10 +37,11 @@
         this._clearTextarea.call(this);
       });
       
-      this.formNode.textarea.addEventListener("keypress", (event) => {
+      this.formNode.textarea.addEventListener("keydown", (event) => {
         if(event.shiftKey &&
            event.keyCode==13 &&
            this.formNode.textarea.value) {
+          event.preventDefault();
           cb();
           this._clearTextarea.call(this);
         }

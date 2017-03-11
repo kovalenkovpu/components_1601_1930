@@ -3,7 +3,7 @@ p {
 }
 
 .chat {
-  height: 500px;
+  min-height: 354px;
   margin: 0;
   padding: 10px;
   font-size: 12px;
@@ -78,4 +78,17 @@ p {
 
 .chat::-webkit-scrollbar-thumb {
 	background-color: #9b4dca;
+}
+
+
+@media(min-width: 768px) {
+  .chat {
+    min-height: 800px;
+  }
+}
+
+@media(min-width: 1150px) {
+  .chat {
+    min-height: 500px;
+  }
 }
