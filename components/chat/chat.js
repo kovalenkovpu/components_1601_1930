@@ -2,6 +2,7 @@
   'use strict';
   
   const tmp = window.chat_tmp;
+  
   /**
   * @typedef {Object} ChatMessage
   * @property {string} text - Текст сообщения
@@ -20,7 +21,6 @@
     */
     addMessage(data) {
       if (data.message) {
-        
         this.el.innerHTML += window.chat_tmp(data);
         this.el.scrollTop = this.el.scrollHeight;
       }

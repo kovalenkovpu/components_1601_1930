@@ -3,12 +3,13 @@ p {
 }
 
 .chat {
-  height: 500px;
+  min-height: 354px;
   margin: 0;
   padding: 10px;
   font-size: 12px;
   color: #000;
   border: 1px solid rgb(209, 209, 209);
+  border-bottom: 0;
   overflow-y: scroll;
 }
 
@@ -25,9 +26,9 @@ p {
 }
 
 .message__avatar {
-  height: 70px;
-  background-size: contain;
-  border-radius: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .message__time {
@@ -77,4 +78,17 @@ p {
 
 .chat::-webkit-scrollbar-thumb {
 	background-color: #9b4dca;
+}
+
+
+@media(min-width: 768px) {
+  .chat {
+    min-height: 800px;
+  }
+}
+
+@media(min-width: 1150px) {
+  .chat {
+    min-height: 500px;
+  }
 }
