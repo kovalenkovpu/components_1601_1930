@@ -45,6 +45,13 @@
     * Логика работы между компонентами
     */
 	_initMediate() {
+      this.form.on("message", (event) => {
+        let data = event.details;
+        
+        this.chat.addMessage(data);
+      });
+      
+      
 	  this.form.onSubmit( () => {
         let data = this.form.getData(this.user);
         this.chat.addMessage(data);
