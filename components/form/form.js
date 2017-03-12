@@ -3,7 +3,7 @@
   
   //import
   const form_tmp = window.form_tmp;
-    
+
   class Form {
 	constructor(options) {
       this.el = options.el;
@@ -35,7 +35,7 @@
     
     _onSubmit(event) {
       event.preventDefault();
-      let formData = this.getData();
+      let formData = this.getData(window.User);
 
       this.trigger('message', formData); //создаем обраб. CustomEvent 'message' с data
     }
@@ -81,15 +81,15 @@
     * @param {class} user
     * @returns {object}
     */
-      
-    getData(user) {
+    
+    getData() {
       let temp_text = this.formNode.textarea.value,
           text = temp_text.replace(/\n/g, "<br/>");
       
       return {
-        avatar: "http://i.imgur.com/qktCpaO.jpg",
+        avatar: "",
         message: text,
-        username: "Pavel",
+        username: "",
         submitted: this._getDate()
       };
     }

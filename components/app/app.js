@@ -47,15 +47,15 @@
 	_initMediate() {
       this.form.on("message", (event) => {
         //let formData = event.detail;
-        let formData = this.form.getData(this.user);
+        let formData = this.form.getData();
         
-        this.chat.addMessage(formData);
+        this.chat.addMessage(formData, this.user);
         this.form.clearTextarea();
 	  });
   
 	  this.form.onSubmit( () => {
-        let data = this.form.getData(this.user);
-        this.chat.addMessage(data);
+        let data = this.form.getData();
+        this.chat.addMessage(data, this.user);
         this.form.clearTextarea();
 	  });
          

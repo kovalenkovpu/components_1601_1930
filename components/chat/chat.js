@@ -19,8 +19,12 @@
     * Добавить новое сообщение в чат
     * @param {ChatMessage} data
     */
-    addMessage(data) {
+    addMessage(data, userData) {
       if (data.message) {
+        data.username = userData.username;
+        data.avatar = userData.avatar;
+        console.log(data.name, data.avatar);
+        
         this.el.innerHTML += window.chat_tmp(data);
         this.el.scrollTop = this.el.scrollHeight;
       }

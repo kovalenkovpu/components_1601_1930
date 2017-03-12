@@ -1,11 +1,27 @@
 .user-info {
-  height: 100%;
-  width: 100px;
+  display: block;
+  position: relative;
+  float: right;
+  height: 40px;
+  min-width: 200px;
 }
 
-.user-name {}
+.user-name {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  height: 40px;
+  min-width: 20px;
+  padding-top: 5px;
+  color: white;
+  font-size: 20px;
+}
 
 .user-avatar {
-  height: 20px;
-  width: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }

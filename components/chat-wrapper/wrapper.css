@@ -16,6 +16,8 @@
 }
 
 .chat-header h3 {
+  display: block;
+  float: left;
   color: white;
   margin-bottom: 0;
 }

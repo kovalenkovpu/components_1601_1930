@@ -6,22 +6,24 @@
   
   class User {
     constructor() {
-      this.name = this._getName();
-      
+      this.username = this._getName();
+      this.avatar = "http://i.imgur.com/qktCpaO.jpg";
+            
       this.chatEl = document.querySelector(".chat-header");
+      
+      this._createAvatar(this);
     }
     
-    _createAvatar() {
-      let avatar = window.user_tmp();
+    _createAvatar(object) {
+      let avatar = window.user_tmp(object);
       
-      this.chatEl.appendChild();
+      this.chatEl.innerHTML += avatar;
     }
     
     _getName() {
-    //let tempName = prompt("Введите имя пользователя");
-      let tempName = "Pavel";
-      if (tempName === null) return "Anon";
-      return tempName;
+      let tempName = prompt("Введите имя пользователя");
+            
+      return (tempName || "Anon");
     }
   }
   
