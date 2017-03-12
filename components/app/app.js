@@ -6,7 +6,7 @@
   const Form = window.Form;
   const Wrapper = window.Wrapper;
   const User = window.User;
-  
+    
   class App {
     constructor(options) {
 	  this.el = options.el; 
@@ -45,9 +45,17 @@
     * Логика работы между компонентами
     */
 	_initMediate() {
+      this.form.on("message", (event) => {
+        //let formData = event.detail;
+        let formData = this.form.getData(this.user);
+        this.chat.addMessage(formData);
+        this.form.clearTextarea();
+	  });
+      
 	  this.form.onSubmit( () => {
         let data = this.form.getData(this.user);
         this.chat.addMessage(data);
+        this.form.clearTextarea();
 	  });
          
 	  this.chat.onScrollStart(() => {
