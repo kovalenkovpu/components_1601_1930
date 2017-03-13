@@ -42,12 +42,12 @@
     
     _onSubmit(event) {
       event.preventDefault();
-      let formData = this.getData(window.User);
+      //let formData = this.getData(window.User);
 
-      this.trigger('message', formData); //создаем обраб. CustomEvent 'message' с data
+      this.trigger('message'); //создаем обраб. CustomEvent 'message'
       
       //костыль для shift+enter
-      this.trigger('click', formData); //создаем обраб. CustomEvent 'shiftEnter' с data
+      this.trigger('click'); //создаем обраб. CustomEvent 'shiftEnter'
     }
     
     /**
@@ -65,8 +65,8 @@
     * @param {Object} data - объект с данными пользователя
     * @returns {} запускает обработчик
     */
-    trigger(name, data) {
-      let event = new CustomEvent(name, {detail: data});
+    trigger(name) {
+      let event = new CustomEvent(name);
       
       this.formNode.form.dispatchEvent(event);
     }
@@ -76,15 +76,14 @@
     * @param {class} user
     * @returns {object}
     */
-    
-    getData() {
+    getData(user) {
       let temp_text = this.formNode.textarea.value,
           text = temp_text.replace(/\n/g, "<br/>");
       
       return {
-        avatar: "",
+        avatar: user.avatar,
         message: text,
-        username: "",
+        username: user.username,
         submitted: this._getDate()
       };
     }
