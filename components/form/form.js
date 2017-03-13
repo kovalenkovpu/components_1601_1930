@@ -2,13 +2,13 @@
   'use strict';
   
   //import
-  const form_tmp = window.form_tmp;
-
+  const form_pug = window.form_tmp;
+    
   class Form {
 	constructor(options) {
       this.el = document.querySelector(".chat-wrapper");
       
-      this.el.innerHTML += window.form_tmp();
+      this.el.innerHTML += form_pug();
           
       this.formNode = this._createFormComponents();
       
@@ -32,6 +32,12 @@
     _initEvents() {
       this.formNode.form.addEventListener('submit',
                                           this._onSubmit.bind(this));
+      
+      /*this.formNode.form.addEventListener('keydown', (event) => {
+        if (event.shiftKey && event.keyCode==13) {
+          this._onSubmit.bind(this);
+        }
+      });*/
     }
     
     _onSubmit(event) {

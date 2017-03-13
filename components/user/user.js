@@ -2,7 +2,7 @@
   "use strict";
   
   //import
-  const user_tmp = window.user_tmp;
+  const user_pug = window.user_tmp;
   
   class User {
     constructor() {
@@ -15,7 +15,7 @@
     }
     
     _createAvatar(object) {
-      let avatar = window.user_tmp(object);
+      let avatar = user_pug(object);
       
       this.chatEl.innerHTML += avatar;
     }

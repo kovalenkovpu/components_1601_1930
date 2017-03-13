@@ -34,7 +34,7 @@
         data.username = userData.username;
         data.avatar = userData.avatar;
 
-        chat.innerHTML += window.chat_tmp(data);
+        chat.innerHTML += chat_pug(data);
         chat.scrollTop = chat.scrollHeight;
       }
     }

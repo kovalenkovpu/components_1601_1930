@@ -1,11 +1,11 @@
 (function() {
   "use strict";
   
-  const wrapper = window.wrapper_tmp;
+  const wrapper_pug = window.wrapper_tmp;
   
   class Wrapper {
     constructor(options) {
-      document.body.innerHTML = window.wrapper_tmp();
+      document.body.innerHTML = wrapper_pug();
       
       this.el = document.body.querySelector(".chat-wrapper");
     }

@@ -43,10 +43,10 @@
         this.form.clearTextarea();
 	  });
       
-      /**
-      * Костыль, добавляющий возможность отправлять сообщение
-      * не по сабмиту формы, а по SHIFT+ENTER
-      */
+      
+      // Костыль, добавляющий возможность отправлять сообщение
+      // не по сабмиту формы, а по SHIFT+ENTER
+      
       this.form.on("click", (event) => {
         if (event.target.tagName == "TEXTAREA") {
           event.target.addEventListener("keydown", (event) => {
