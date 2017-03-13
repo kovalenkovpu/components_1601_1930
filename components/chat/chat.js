@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   
-  const tmp = window.chat_tmp;
+  const chat_pug = window.chat_tmp;
   
   /**
   * @typedef {Object} ChatMessage
@@ -13,6 +13,14 @@
     constructor(options) {
       this.el = options.el;
       this.el.classList.add("chat");
+      
+      this._renderChat(this.el);
+    }
+    
+    _renderChat(elem) {
+      let wrapper = document.querySelector(".chat-wrapper");
+      
+      wrapper.appendChild(elem);
     }
     
     /**
@@ -21,12 +29,13 @@
     */
     addMessage(data, userData) {
       if (data.message) {
+        let chat = document.querySelector(".chat");
+
         data.username = userData.username;
         data.avatar = userData.avatar;
-        console.log(data.name, data.avatar);
-        
-        this.el.innerHTML += window.chat_tmp(data);
-        this.el.scrollTop = this.el.scrollHeight;
+
+        chat.innerHTML += window.chat_tmp(data);
+        chat.scrollTop = chat.scrollHeight;
       }
     }
     

@@ -12,12 +12,12 @@
 	  this.el = options.el; 
          
 	  this._createComponents();
-	  this._renderComponents();
+	  //this._renderComponents();
       this._initMediate();
 	}
     
     /**
-    * Создание компонент: обертка, чат, форма
+    * Создание и рендер компонент: обертка, чат, форма, юзер
     */
 	_createComponents() {
       this.wrapper = new Wrapper();
@@ -26,21 +26,11 @@
 	  	el: document.createElement('div')
 	  });
          
-	  this.form = new Form({
-	  	el: document.createElement('div')
-	  });
-      
+	  this.form = new Form();
+            
       this.user = new User();
 	}
-    
-    /**
-    * Рендер компонент
-    */
-    _renderComponents() {
-      this.wrapper.el.appendChild(this.chat.el);
-	  this.wrapper.el.appendChild(this.form.el);
-    }
-    
+
     /**
     * Логика работы между компонентами
     */
@@ -48,17 +38,30 @@
       this.form.on("message", (event) => {
         //let formData = event.detail;
         let formData = this.form.getData();
-        
+      
         this.chat.addMessage(formData, this.user);
         this.form.clearTextarea();
 	  });
-  
-	  this.form.onSubmit( () => {
-        let data = this.form.getData();
-        this.chat.addMessage(data, this.user);
-        this.form.clearTextarea();
-	  });
-         
+      
+      /**
+      * Костыль, добавляющий возможность отправлять сообщение
+      * не по сабмиту формы, а по SHIFT+ENTER
+      */
+      this.form.on("click", (event) => {
+        if (event.target.tagName == "TEXTAREA") {
+          event.target.addEventListener("keydown", (event) => {
+            if (event.shiftKey &&
+                event.keyCode==13) {
+              let formData = this.form.getData();
+              
+              event.preventDefault();
+              this.chat.addMessage(formData, this.user);
+              this.form.clearTextarea();
+            }
+          });
+        }
+      });
+      
 	  this.chat.onScrollStart(() => {
 	  	this.form.disable();
 	  });

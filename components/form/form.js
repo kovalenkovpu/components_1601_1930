@@ -6,9 +6,9 @@
 
   class Form {
 	constructor(options) {
-      this.el = options.el;
+      this.el = document.querySelector(".chat-wrapper");
       
-      this.el.innerHTML = window.form_tmp();
+      this.el.innerHTML += window.form_tmp();
           
       this.formNode = this._createFormComponents();
       
@@ -30,7 +30,8 @@
     }
     
     _initEvents() {
-      this.formNode.form.addEventListener('submit', this._onSubmit.bind(this));
+      this.formNode.form.addEventListener('submit',
+                                          this._onSubmit.bind(this));
     }
     
     _onSubmit(event) {
@@ -38,6 +39,9 @@
       let formData = this.getData(window.User);
 
       this.trigger('message', formData); //создаем обраб. CustomEvent 'message' с data
+      
+      //костыль для shift+enter
+      this.trigger('click', formData); //создаем обраб. CustomEvent 'shiftEnter' с data
     }
     
     /**
@@ -59,21 +63,6 @@
       let event = new CustomEvent(name, {detail: data});
       
       this.formNode.form.dispatchEvent(event);
-    }
-    
-    /**
-    * Навешивает обработчик при отправке
-    * @param {function} callback на выполнение обработчика
-    */
-	onSubmit(cb) {
-      this.formNode.textarea.addEventListener("keydown", (event) => {
-        if(event.shiftKey &&
-           event.keyCode==13 &&
-           this.formNode.textarea.value) {
-          event.preventDefault();
-          cb();
-        }
-      });
     }
     
     /**

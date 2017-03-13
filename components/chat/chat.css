@@ -3,7 +3,7 @@ p {
 }
 
 .chat {
-  min-height: 354px;
+  height: 354px;
   margin: 0;
   padding: 10px;
   font-size: 12px;
@@ -63,8 +63,6 @@ p {
   font-style: italic;
   font-weight: 700;
 }
-
-.message__data {}
 
 .chat::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
