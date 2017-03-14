@@ -14,7 +14,7 @@
    */
   function makeRequest (cb) {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://github.com/kovalenkovpu/components_1601_1930/data/data.json');
+    xhr.open('GET', 'https://raw.githubusercontent.com/kovalenkovpu/components_1601_1930/master/data/data.json');
     xhr.send();
     xhr.onload = function() {
       cb(JSON.parse(xhr.responseText));
