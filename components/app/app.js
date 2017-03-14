@@ -14,7 +14,7 @@
    */
   function makeRequest (cb) {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'components_1601_1930/data/data.json');
+    xhr.open('GET', '/data/data.json');
     xhr.send();
     xhr.onload = function() {
       cb(JSON.parse(xhr.responseText));
