@@ -1,0 +1,11 @@
+[{
+	"username": "Pavel",
+	"avatar": "http://i.imgur.com/qktCpaO.jpg",
+	"message": "Первый пошел!",
+	"submitted": "00:00:00"
+}, {
+	"username": "Pavel",
+	"avatar": "http://i.imgur.com/qktCpaO.jpg",
+	"message": "Второй пошел!",
+	"submitted": "00:00:01"
+}]
