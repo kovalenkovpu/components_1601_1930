@@ -18,6 +18,11 @@
       this._renderChat(this.el);
     }
     
+    /**
+     * Рендер элементов текстового поля чата
+     * @private
+     * @param {object} elem DOM-элемент
+     */
     _renderChat(elem) {
       let wrapper = document.querySelector(".chat-wrapper");
       
@@ -26,26 +31,28 @@
     }
     
     /**
-    * Добавить новое сообщение в чат
-    * @param {ChatMessage} data
-    */
+     * Добавить новое сообщение в чат
+     * @param {ChatMessage} data
+     */
     addMessage(data) {
       if (data.message) {
         let chat = document.querySelector(".chat");
         
+        //TODO - добавлять информацию в data.json
         chat.innerHTML += chat_pug(data);
         chat.scrollTop = chat.scrollHeight;
       }
     }
     
     /**
-    * Добавляет историю в чат при первом запуске
-    * @param {ChatMessage} data
-    */
+     * Добавляет историю в чат при первом запуске
+     * @private
+     * @param {array} dataArr - массив объектов с данными
+     */
     _getStory(dataArr) {
-      
       if (dataArr.length) {
         let chat = document.querySelector(".chat");
+        
         dataArr.forEach((elem) => {
           chat.innerHTML += chat_pug(elem);
         });

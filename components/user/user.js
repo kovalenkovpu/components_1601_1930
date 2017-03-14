@@ -14,12 +14,22 @@
       this._createAvatar(this);
     }
     
+    /**
+     * Создаем иконку аватар в хэдере чата
+     * @private
+     * @param {object} object - объект юзер
+     */
     _createAvatar(object) {
       let avatar = user_pug(object);
       
       this.chatEl.innerHTML += avatar;
     }
     
+    /**
+     * Получение имени пользователя
+     * @private
+     * @returns {string} - имя
+     */
     _getName() {
       let tempName = prompt("Введите имя пользователя");
             

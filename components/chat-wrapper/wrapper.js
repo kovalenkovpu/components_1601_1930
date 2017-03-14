@@ -12,9 +12,9 @@
     
     //устаревший функционал
     /**
-    * Добавление хэдера чата
-    * @param {object} DOM element
-    */
+     * Добавление хэдера чата
+     * @param {object} DOM element
+     */
     _createChatHeader(elem) {
       let header = document.createElement("div");
       

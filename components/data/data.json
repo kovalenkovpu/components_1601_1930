@@ -2,10 +2,10 @@
 	"username": "Pavel",
 	"avatar": "http://i.imgur.com/qktCpaO.jpg",
 	"message": "Первый пошел!",
-	"date": "00:00:00"
+	"submitted": "00:00:00"
 }, {
 	"username": "Pavel",
 	"avatar": "http://i.imgur.com/qktCpaO.jpg",
 	"message": "Второй пошел!",
-	"date": "00:00:01"
+	"submitted": "00:00:01"
 }]
