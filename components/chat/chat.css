@@ -5,7 +5,8 @@ p {
 .chat {
   height: 354px;
   margin: 0;
-  padding: 10px;
+  /*padding: 10px;*/
+  padding: 0;
   background-color: #f2f1f9;
   font-size: 12px;
   color: #000;
@@ -17,8 +18,11 @@ p {
 .message {
   position: relative;
   width: 100%;
-  margin-bottom: 10px;
-  min-height: 70px;
+  min-height: 80px;
+  padding: 10px;
+  /*box-shadow: 0 3px 5px 0 gray;*/
+  border-bottom: 1px solid #bababa;
+  background-color: #fff;
 }
 
 .message:hover {
@@ -26,43 +30,62 @@ p {
   background-color: #e3f4f6;
 }
 
+.message:hover .message__arrow {
+  display: block;
+}
+
 .message__avatar {
+  position: absolute;
+  left: 10px;
+  top: 10px;
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
 
 .message__time {
-  padding-left: 7px;
+  position: absolute;
+  left: 5px;
+  top: 60px;
+  margin-left: 3px;
+  padding: 0 5px;
   width: 50px;
   font-style: italic;
   font-size: 10px;
 }
 
-.message__decor {
-  position: absolute;
-  left: 65px;
-  top: 10px;
-  width: 10px;
-  height: 15px;
-  background-color: #aba7a7;
-  transform: rotate(35deg);
-}
-
 .message__text {
-  position: absolute;
-  left: 70px;
-  top: 5px;
+  margin-left: 80px;
   padding: 5px;
-  background-color: #fff;
-  border: 1px solid #aba7a7;
-  border-radius: 3px;
-  border-left-width: 5px;
 }
 
 .message__username {
   font-style: italic;
   font-weight: 700;
+}
+
+.message__arrow {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 400px;
+  height: 20px;
+  width: 20px;
+}
+
+.message__arrow:hover {
+  transform: scale(0.9);
+  transition: 100ms ease-in;
+  cursor: pointer;
+}
+
+.message__arrow-svg {
+  fill: #9b4dca;
+}
+
+.message__data {
+  max-width: 300px;
+  font-size: 14px;
 }
 
 .chat::-webkit-scrollbar-track {
