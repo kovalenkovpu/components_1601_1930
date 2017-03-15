@@ -1,4 +1,5 @@
 form.form
-  fieldset.fieldset
-    textarea(id='commentField' placeholder='Введите сообщение')
-    input.button(type='submit' value='send')
+  fieldset.form__fieldset
+    textarea(id='commentField' class='form__commentfield' placeholder='Введите сообщение')
+    p.form__commentfield-hint SHIFT+ENTER - отправить
+    input(class='button form__button' type='submit' value='отправить')

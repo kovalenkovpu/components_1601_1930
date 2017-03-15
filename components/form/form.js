@@ -34,14 +34,28 @@
      * @private
      */
     _initEvents() {
-      this.formNode.form.addEventListener('submit',
+      let hint = this.formNode.form.querySelector(".form__commentfield-hint");
+      
+      this.formNode.form.addEventListener("submit",
                                           this._onSubmit.bind(this));
       
-      this.formNode.textarea.addEventListener('keydown', (event) => {
-        if (event.shiftKey && event.keyCode==13) {
+      this.formNode.textarea.addEventListener("keydown", (event) => {
+        if (event.shiftKey && event.keyCode == 13) {
           event.preventDefault();
 
-          this.trigger('message');
+          this.trigger("message");
+        }
+      });
+      
+      this.formNode.textarea.addEventListener("focus", (event) => {
+        if (!this.formNode.form.querySelector(".form__commentfield-hint--visible")) {
+          hint.classList.add("form__commentfield-hint--visible");
+        }
+      });
+      
+      this.formNode.textarea.addEventListener("blur", (event) => {
+        if (this.formNode.form.querySelector(".form__commentfield-hint--visible")) {
+          hint.classList.remove("form__commentfield-hint--visible");
         }
       });
     }
@@ -85,7 +99,7 @@
     getData(user) {
       let temp_text = this.formNode.textarea.value,
           text = temp_text.replace(/\n/g, "<br/>");
-      
+
       return {
         avatar: user.avatar,
         message: text,

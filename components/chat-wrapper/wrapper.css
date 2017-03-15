@@ -4,8 +4,10 @@
   padding: 10px;
   min-height: 300px;
   width: 320px;
-  border: 2px solid #9b4dca;
-  border-radius: 5px;
+  border-radius: 2px;
+  box-shadow: 0 6px 10px 0 gray;
+  
+  /*#9b4dca*/
 }
 
 .chat-header {
@@ -13,6 +15,7 @@
   min-height: 50px;
   padding: 5px;
   background-color: #9b4dca;
+  font-family: "Roboto";
 }
 
 .chat-header h3 {
@@ -20,6 +23,7 @@
   float: left;
   color: white;
   margin-bottom: 0;
+  font-weight: 400;
 }
 
 @media(min-width: 768px) {

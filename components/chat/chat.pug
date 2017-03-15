@@ -1,7 +1,9 @@
+- var arrow = '<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="message__arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="20px" width="20px" viewBox="0 0 16 16"><path d="M16 8c0-5-4.9-5-4.9-5h-5.1v-3l-6 6 6 6v-3h5.2c3.5 0 1.8 7 1.8 7s3-4.1 3-8z"/></svg>';
+
 div.message
   img(class='message__avatar' src=`${avatar}`)
   div.message__time #{submitted}
-  div.message__decor
   div.message__text
     div.message__username #{username}
-    div.message__data #{message}
+    span.message__arrow !{arrow}
+    div.message__data !{message}
