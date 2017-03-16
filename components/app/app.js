@@ -6,7 +6,17 @@
   const Form = window.Form;
   const Wrapper = window.Wrapper;
   const User = window.User;
-    
+  
+  // Initialize Firebase
+  let config = {
+    apiKey: "AIzaSyBWgBGeLgL3NdE9sWboCGfn-AUq-zL4Uk0",
+    authDomain: "chat-f349c.firebaseapp.com",
+    databaseURL: "https://chat-f349c.firebaseio.com",
+    storageBucket: "chat-f349c.appspot.com",
+    messagingSenderId: "16594358859"
+  };
+  firebase.initializeApp(config);
+  
   /**
    * Отправляет запрос к data.json, который содержит все
    * сообщения, авторов, даты
@@ -29,8 +39,20 @@
         this.jsonData = data;
         this._createComponents();
         this._initMediate();
+        this._databaseWrite();
       });
 	}
+    
+    /**
+     *
+     *
+     */
+    _databaseWrite() {
+      const chatObj = document.querySelector(".chat");
+      const dbRefObj = firebase.database().ref().child("object");
+      
+      dbRefObj.on("value", snap => console.log(snap.val()));
+    }
     
     /**
       * Создание и рендер компонент: обертка, чат, форма, юзер
