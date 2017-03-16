@@ -3,7 +3,7 @@
   position: relative;
   float: right;
   height: 40px;
-  min-width: 200px;
+  width: 100px;
 }
 
 .user-name {
@@ -24,4 +24,16 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+
+@media(min-width: 768px) {
+  .user-info {
+    min-width: 200px;
+  }
+}
+
+@media(min-width: 1150px) {
+  .user-info {
+    min-width: 200px;
+  }
 }

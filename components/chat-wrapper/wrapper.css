@@ -23,17 +23,27 @@
   float: left;
   color: white;
   margin-bottom: 0;
+  padding: 8px 0;
   font-weight: 400;
+  font-size: 20px;
 }
 
 @media(min-width: 768px) {
   .chat-wrapper {
     width: 740px;
   }
+  
+  .chat-header h3 {
+    
+  }
 }
 
 @media(min-width: 1150px) {
   .chat-wrapper {
     width: 500px;
+  }
+  
+  .chat-header h3 {
+    
   }
 }
