@@ -40,6 +40,8 @@
         
         chat.innerHTML += chat_pug(data);
         chat.scrollTop = chat.scrollHeight;
+      }
+    }
     
     /**
      * Добавляет историю в чат при первом запуске
