@@ -6,30 +6,36 @@
   const Form = window.Form;
   const Wrapper = window.Wrapper;
   const User = window.User;
-    
+  
+  
   /**
    * Отправляет запрос к data.json, который содержит все
    * сообщения, авторов, даты
    * @param {function} cb - срабатывает при загрузке данных
    */
-  function makeRequest (cb) {
+  /*function makeRequest (cb) {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://raw.githubusercontent.com/kovalenkovpu/components_1601_1930/master/data/data.json');
-    xhr.send();
+    xhr.open('GET', 'https://kovalenkovpu.firebaseio.com/messages.json', true);
+    
     xhr.onload = function() {
       cb(JSON.parse(xhr.responseText));
     }
-  }
+    
+    xhr.send();
+  }*/
 
   class App {
     constructor(options) {
 	  this.el = options.el;
       
-      makeRequest((data) => {
+      /*makeRequest((data) => {
         this.jsonData = data;
         this._createComponents();
         this._initMediate();
-      });
+      });*/
+      
+      this._createComponents();
+      this._initMediate();
 	}
     
     /**
@@ -41,7 +47,7 @@
       
       this.chat = new Chat({
 	  	el: document.createElement('div')
-	  }, this.jsonData);
+	  });
          
 	  this.form = new Form();
             
@@ -53,6 +59,8 @@
       * @private
       */
 	_initMediate() {
+      let chatEl = document.body.querySelector(".chat");
+      
       this.form.on("message", (event) => {
         //let formData = event.detail;
         let formData = this.form.getData(this.user);
@@ -61,23 +69,13 @@
         this.form.clearTextarea();
 	  });
       
-      let chatEl = document.body.querySelector(".chat");
       chatEl.addEventListener("click", (event) => {
         let closest = event.target.closest(".message__arrow");
         
         if (closest) {
-          console.log(closest);
           this.form.replyToUser(closest);
         }
       });
-
-	  this.chat.onScrollStart(() => {
-	  	this.form.disable();
-	  });
-         
-	  this.chat.onScrollEnd(() => {
-	  	this.form.enable();
-	  });
 	}
     
     /**
