@@ -60,6 +60,16 @@
         this.chat.addMessage(formData);
         this.form.clearTextarea();
 	  });
+      
+      let chatEl = document.body.querySelector(".chat");
+      chatEl.addEventListener("click", (event) => {
+        let closest = event.target.closest(".message__arrow");
+        
+        if (closest) {
+          console.log(closest);
+          this.form.replyToUser(closest);
+        }
+      });
 
 	  this.chat.onScrollStart(() => {
 	  	this.form.disable();

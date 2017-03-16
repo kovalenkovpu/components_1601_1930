@@ -29,7 +29,7 @@
       wrapper.appendChild(elem);
       this._getStory(this.data);
     }
-    
+        
     /**
      * Добавить новое сообщение в чат
      * @param {ChatMessage} data
@@ -38,24 +38,8 @@
       if (data.message) {
         let chat = document.querySelector(".chat");
         
-        //[-]TODO - добавлять информацию в data.json
-        //[+]TODO - учесть переносы на новую строку
-        //[+]TODO - подсказки
-        //[-]TODO - реализовать reply
-        
         chat.innerHTML += chat_pug(data);
         chat.scrollTop = chat.scrollHeight;
-        
-        //this._onArrowEventListener();
-      }
-    }
-    
-    /*_onArrowEventListener() {
-      
-      mentionArrow.addEventListener("click", () => {
-        textarea += "BACK TO: ";
-      });
-    }*/
     
     /**
      * Добавляет историю в чат при первом запуске

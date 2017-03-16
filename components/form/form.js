@@ -109,6 +109,19 @@
     }
     
     /**
+     * Отправляет имя юзера в поле ввода формы при
+     * клике на стрелку ответа, ставит автофокус
+     * @param {object} target DOM-элемент - имя юзера,
+     *                        которому уходит ответ
+     */
+    replyToUser(target) {
+      let replyName = target.parentNode.querySelector(".message__username").textContent;
+      
+      this.formNode.textarea.value += "@" + replyName + " ";
+      this.formNode.textarea.focus();
+    }
+    
+    /**
      * Очистка текстового поля ввода сообщения
      */
     clearTextarea() {
