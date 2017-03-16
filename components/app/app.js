@@ -6,7 +6,7 @@
   const Form = window.Form;
   const Wrapper = window.Wrapper;
   const User = window.User;
-  
+    
   /**
    * Отправляет запрос к data.json, который содержит все
    * сообщения, авторов, даты
