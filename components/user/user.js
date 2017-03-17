@@ -7,7 +7,7 @@
   class User {
     constructor() {
       this.username = this._getName();
-      this.avatar = "http://i.imgur.com/qktCpaO.jpg";
+      this.avatar = this._getAvatarImg();
             
       this.chatEl = document.querySelector(".chat-header");
       
@@ -33,7 +33,22 @@
     _getName() {
       let tempName = prompt("Введите имя пользователя");
             
-      return (tempName || "Anon");
+      return (tempName || "Anonim");
+    }
+    
+    /**
+     * Получение аватара пользователя
+     * @private
+     * @returns {string} - имя
+     */
+    _getAvatarImg() {
+      if (this.username == "Admin") {
+        return "http://i.imgur.com/qktCpaO.jpg";
+      } else {      
+        let count = Math.round(Math.random() * 10);
+
+        return "http://lorempixel.com/50/50/people/" + count;
+      }
     }
   }
   

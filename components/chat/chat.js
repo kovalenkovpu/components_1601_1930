@@ -13,10 +13,11 @@
     constructor(options) {
       //this.data = this._getMessagesXHR();
       this.el = options.el;
+      
       this.el.classList.add("chat");
       
       this._renderChat(this.el);
-      
+
       this._pollingDatabase();
     }
     
@@ -29,7 +30,7 @@
       let wrapper = document.querySelector(".chat-wrapper");
       
       wrapper.appendChild(elem);
-      //this._reloadChat(this.data);
+      this._reloadChat(this.data);
     }
         
     /**
@@ -73,12 +74,12 @@
       let xhr = new XMLHttpRequest();
       
       xhr.open('GET', 'https://kovalenkovpu.firebaseio.com/messages.json', true);
-    
+      
       xhr.onload = function() {
         //аргумент cb - это объект вида {{...},{...},{...}}
         cb(JSON.parse(xhr.responseText));
       }
-    
+
       xhr.send();
     }
     
@@ -87,11 +88,40 @@
      * @private
      */
     _pollingDatabase() {
-      let reloadID = setInterval(() => {
+      this.__pollingID = setInterval(() => {
         this._getMessagesXHR((data) => {
-          this._reloadChat(data);
+
+          if (this._isEqual(data, this._retrieveLastChatMessage())) this._reloadChat(data);
+
         });
-      }, 1000);
+      }, 10000);
+    }
+    
+    _isEqual(serverObj, clientObj) {
+      let serverAvatar = ,
+          clientAvatar = ,
+          serverUsername = ,
+          clientUsername = ,
+          serverSubmitted = ,
+          clientSubmitted = ;
+    }
+    
+    _retrieveLastChatMessage() {
+      let message = this.el.lastChild;
+      
+      return {
+        avatar: message.querySelector(".message__avatar").getAttribute("src"),
+        message: "",
+        username: message.querySelector(".message__username").textContent,
+        submitted: message.querySelector(".message__time").textContent
+      }
+    }
+    
+    /**
+     * Останавливает опрос сервера
+     */
+    stopPollingDatabase() {
+      clearInterval(this.__pollingID)
     }
     
     /**

@@ -1,13 +1,11 @@
 .chat-wrapper {
   display: block;
-  margin: 10px auto;
+  margin: 0;
   padding: 10px;
-  min-height: 300px;
-  width: 320px;
+  height: 100vh;
+  width: 100vw;
   border-radius: 2px;
   box-shadow: 0 6px 10px 0 gray;
-  
-  /*#9b4dca*/
 }
 
 .chat-header {
@@ -30,7 +28,9 @@
 
 @media(min-width: 768px) {
   .chat-wrapper {
+    margin: 0 auto;
     width: 740px;
+    height: 98vh;
   }
   
   .chat-header h3 {
@@ -41,6 +41,7 @@
 @media(min-width: 1150px) {
   .chat-wrapper {
     width: 500px;
+    height: 700px;
   }
   
   .chat-header h3 {
