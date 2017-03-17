@@ -88,27 +88,42 @@
      * @private
      */
     _pollingDatabase() {
+      this._getMessagesXHR((data) => {
+        this._reloadChat(data);
+      });
+      
       this.__pollingID = setInterval(() => {
         this._getMessagesXHR((data) => {
+          
+          if (data == null) {
+            return;
+          }
 
-          if (this._isEqual(data, this._retrieveLastChatMessage())) this._reloadChat(data);
+          if (!this._isEqual(data, this._retrieveLastChatMessage())) this._reloadChat(data);
 
         });
-      }, 10000);
+      }, 1000);
     }
     
     _isEqual(serverObj, clientObj) {
-      let serverAvatar = ,
-          clientAvatar = ,
-          serverUsername = ,
-          clientUsername = ,
-          serverSubmitted = ,
-          clientSubmitted = ;
+      let keysArr = Object.keys(serverObj),
+          target = serverObj[keysArr[keysArr.length - 1]];
+      
+      let serverAvatar = target.avatar,
+          clientAvatar = clientObj.avatar,
+          serverUsername = target.username,
+          clientUsername = clientObj.username,
+          serverSubmitted = target.submitted,
+          clientSubmitted = clientObj.submitted;
+      
+      if (serverAvatar === clientAvatar &&
+          serverUsername === clientUsername &&
+          serverSubmitted === clientSubmitted) return true;
     }
     
     _retrieveLastChatMessage() {
-      let message = this.el.lastChild;
-      
+      let message = document.body.querySelector(".chat").lastChild;
+
       return {
         avatar: message.querySelector(".message__avatar").getAttribute("src"),
         message: "",
