@@ -99,12 +99,25 @@
             return;
           }
 
-          if (!this._isEqual(data, this._retrieveLastChatMessage())) this._reloadChat(data);
+          if (!this._isEqual(data, this._retrieveLastChatMessage())) {
+            let chat = document.querySelector(".chat");
+            
+            this._reloadChat(data);
+            chat.scrollTop = chat.scrollHeight;
+          }
 
         });
       }, 1000);
     }
     
+    /**
+     * Сравнение последнего сообщения в чате с последним сообщением
+     * в БД по ключам
+     * @private
+     * @param   {object} serverObj история чата с сервера
+     * @param   {object}   clientObj последнее сообщение чата
+     * @returns {boolean}  true если равны
+     */
     _isEqual(serverObj, clientObj) {
       let keysArr = Object.keys(serverObj),
           target = serverObj[keysArr[keysArr.length - 1]];
@@ -121,6 +134,11 @@
           serverSubmitted === clientSubmitted) return true;
     }
     
+    /**
+     * Получает последнее сообщение из чата (не из БД)
+     * @private
+     * @returns {object} объект с данными последнего сообщ чата
+     */
     _retrieveLastChatMessage() {
       let message = document.body.querySelector(".chat").lastChild;
 

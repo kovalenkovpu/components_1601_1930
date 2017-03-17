@@ -48,7 +48,6 @@
         let count = Math.round(Math.random() * 10);
         
         (count == 0) ? 1 : count;
-        console.log(count);
 
         return "http://lorempixel.com/50/50/people/" + count;
       }
