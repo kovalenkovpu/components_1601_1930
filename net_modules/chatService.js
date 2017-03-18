@@ -1,52 +1,9 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
   
-  const chat_pug = window.chat_tmp;
-  const chatNetService = window.ChatNetService;
-  
-  /**
-  * @typedef {Object} ChatMessage
-  * @property {string} text - Текст сообщения
-  * @property {string} email - Email отправителя сообщения
-  */
-
-  class Chat {
-    constructor(options) {
-      //this.data = this._getMessagesXHR();
-      this.el = options.el;
-      
-      this.el.classList.add("chat");
-      
-      this._renderChat(this.el);
-
-      this._pollingDatabase();
-    }
-    
-    /**
-     * Рендер элементов текстового поля чата
-     * @private
-     * @param {object} elem DOM-элемент
-     */
-    _renderChat(elem) {
-      let wrapper = document.querySelector(".chat-wrapper");
-      
-      wrapper.appendChild(elem);
-      this._reloadChat(this.data);
-    }
-        
-    /**
-     * Добавить новое сообщение в чат
-     * @param {ChatMessage} data
-     */
-    addMessage(data) {
-      if (data.message) {
-        let chat = document.querySelector(".chat");
-        
-        chat.innerHTML += chat_pug(data);
-        //отправляет сообщение в БД
-        this._sendMessageXHR(data);
-        chat.scrollTop = chat.scrollHeight;
-      }
+  class ChatNetService {
+    constuctor(url) {
+      this.url = url;
     }
     
     /**
@@ -57,7 +14,7 @@
     _sendMessageXHR(data) {
       let xhr = new XMLHttpRequest();
       
-      xhr.open('POST', 'https://kovalenkovpu.firebaseio.com/messages.json', true);
+      xhr.open('POST', this.url, true);
       
       xhr.onload = function() {
         console.log("Данные отправлены");
@@ -74,7 +31,7 @@
     _getMessagesXHR(cb) {
       let xhr = new XMLHttpRequest();
       
-      xhr.open('GET', 'https://kovalenkovpu.firebaseio.com/messages.json', true);
+      xhr.open('GET', this.url, true);
       
       xhr.onload = function() {
         //аргумент cb - это объект вида {{...},{...},{...}}
@@ -88,9 +45,9 @@
      * Запускает опрос сервера
      * @private
      */
-    _pollingDatabase() {
+    _pollingDatabase(reloadCallback) {
       this._getMessagesXHR((data) => {
-        this._reloadChat(data);
+        reloadCallback(data);
       });
       
       this.__pollingID = setInterval(() => {
@@ -103,7 +60,7 @@
           if (!this._isEqual(data, this._retrieveLastChatMessage())) {
             let chat = document.querySelector(".chat");
             
-            this._reloadChat(data);
+            reloadCallback(data);
             chat.scrollTop = chat.scrollHeight;
           }
 
@@ -151,32 +108,8 @@
       }
     }
     
-    /**
-     * Останавливает опрос сервера
-     */
-    stopPollingDatabase() {
-      clearInterval(this.__pollingID)
-    }
-    
-    /**
-     * Перезагрузка чата
-     * @private
-     * @param {object} data - данные от _getMessagesXHR
-     */
-    _reloadChat(data) {
-      let chat = document.body.querySelector(".chat");
-      
-      chat.innerHTML = "";
-      
-      for (let key in data) {
-        chat.innerHTML += chat_pug(data[key]);
-      }
-      /*data.forEach((elem) => {
-          chat.innerHTML += chat_pug(elem);
-      });*/
-    }
   }
   
   //export
-  window.Chat = Chat;
+  window.ChatNetService = ChatNetService;
 })();
