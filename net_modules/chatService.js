@@ -2,10 +2,10 @@
   "use strict";
   
   class ChatNetService {
-    constuctor(url) {
+    constructor(url) {
       this.url = url;
     }
-    
+
     /**
      * Отправляет сообщение в БД
      * @private
