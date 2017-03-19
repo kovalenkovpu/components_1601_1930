@@ -3,7 +3,28 @@
   position: relative;
   float: right;
   height: 40px;
-  width: 100px;
+  width: 100%;
+}
+
+.user-login,
+.user-login__fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+#user-login__input {
+  height: 30px;
+  width: 30%;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+#user-login__input:disabled {
+  background-color: #9b4dca;
+  color: #fff;
+  text-decoration: underline;
+  border: 0;
 }
 
 .user-name {

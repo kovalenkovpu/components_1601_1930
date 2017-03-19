@@ -6,34 +6,11 @@
   const Form = window.Form;
   const Wrapper = window.Wrapper;
   const User = window.User;
-  
-  
-  /**
-   * Отправляет запрос к data.json, который содержит все
-   * сообщения, авторов, даты
-   * @param {function} cb - срабатывает при загрузке данных
-   */
-  /*function makeRequest (cb) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://kovalenkovpu.firebaseio.com/messages.json', true);
-    
-    xhr.onload = function() {
-      cb(JSON.parse(xhr.responseText));
-    }
-    
-    xhr.send();
-  }*/
 
   class App {
     constructor(options) {
 	  this.el = options.el;
-      
-      /*makeRequest((data) => {
-        this.jsonData = data;
-        this._createComponents();
-        this._initMediate();
-      });*/
-      
+
       this._createComponents();
       this._initMediate();
 	}
@@ -44,13 +21,13 @@
       */
 	_createComponents() {
       this.wrapper = new Wrapper();
-      
+
       this.chat = new Chat({
-	  	el: document.createElement('div')
+	  	el: document.createElement("div")
 	  });
-         
+
 	  this.form = new Form();
-            
+
       this.user = new User();
 	}
 
@@ -64,7 +41,7 @@
       this.form.on("message", (event) => {
         //let formData = event.detail;
         let formData = this.form.getData(this.user);
-      
+
         this.chat.addMessage(formData);
         this.form.clearTextarea();
 	  });

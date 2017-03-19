@@ -3,7 +3,7 @@ p {
 }
 
 .chat {
-  height: 70vh;
+  height: 65vh;
   width: 100%;
   margin: 0;
   /*padding: 10px;*/
@@ -106,7 +106,7 @@ p {
 
 @media(min-width: 768px) {
   .chat {
-    height: 800px;
+    height: 75vh;
   }
   
   .message__arrow {
