@@ -1,8 +1,9 @@
 ## JS chat on ES6 modules ##
 
-js
-pug
-node-static
+<p>javascript ES2015
+<p>pug
+<p>node-static
+<p>firebase DB
 
-Link to demo:
+<strong>Link to demo:
 https://kovalenkovpu.github.io/components_1601_1930/
