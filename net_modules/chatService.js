@@ -29,12 +29,14 @@
      */
     _getMessagesXHR(cb) {
       let xhr = new XMLHttpRequest();
+      let chat = document.body.querySelector(".chat");
       
       xhr.open('GET', this.url, true);
       
       xhr.onload = function() {
         //аргумент cb - это объект вида {{...},{...},{...}}
         cb(JSON.parse(xhr.responseText));
+        chat.scrollTop = chat.scrollHeight;
       }
       xhr.send();
     }
