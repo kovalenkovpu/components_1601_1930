@@ -1,8 +1,9 @@
 .chat-wrapper {
   display: block;
+  position: relative;
   margin: 0;
   padding: 10px;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   border-radius: 2px;
   box-shadow: 0 6px 10px 0 gray;
@@ -16,25 +17,26 @@
   font-family: "Roboto";
 }
 
-.chat-header h3 {
-  display: block;
-  float: left;
-  color: white;
-  margin-bottom: 0;
+.chat-version {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  margin: 0;
   padding: 8px 0;
-  font-weight: 400;
-  font-size: 20px;
+  color: #606c76;
+  font-size: 10px;
+  font-style: italic;
 }
 
 @media(min-width: 768px) {
   .chat-wrapper {
     margin: 0 auto;
     width: 740px;
-    height: 98vh;
+    height: 95vh;
   }
   
-  .chat-header h3 {
-    
+  .chat-version {
   }
 }
 
@@ -44,7 +46,7 @@
     height: 700px;
   }
   
-  .chat-header h3 {
-    
+  .chat-version {
+    display: block;
   }
 }

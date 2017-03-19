@@ -8,10 +8,9 @@
 
     /**
      * Отправляет сообщение в БД
-     * @private
      * @param {object} data - объект данных сообщения
      */
-    _sendMessageXHR(data) {
+    sendMessageXHR(data) {
       let xhr = new XMLHttpRequest();
       
       xhr.open('POST', this.url, true);
@@ -37,7 +36,6 @@
         //аргумент cb - это объект вида {{...},{...},{...}}
         cb(JSON.parse(xhr.responseText));
       }
-
       xhr.send();
     }
     
@@ -45,7 +43,7 @@
      * Запускает опрос сервера
      * @private
      */
-    _pollingDatabase(reloadCallback) {
+    pollingDatabase(reloadCallback) {
       this._getMessagesXHR((data) => {
         reloadCallback(data);
       });
@@ -61,9 +59,7 @@
             let chat = document.querySelector(".chat");
             
             reloadCallback(data);
-            chat.scrollTop = chat.scrollHeight;
           }
-
         });
       }, 1000);
     }
@@ -108,6 +104,12 @@
       }
     }
     
+    /**
+     * Останавливает опрос сервера
+     */
+    stopPollingDatabase() {
+      clearInterval(this.__pollingID)
+    }
   }
   
   //export

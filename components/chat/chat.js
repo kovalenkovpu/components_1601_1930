@@ -2,7 +2,7 @@
   'use strict';
   
   const chat_pug = window.chat_tmp;
-  const chatNetService = window.ChatNetService;
+  const ChatNetService = window.ChatNetService;
   
   /**
   * @typedef {Object} ChatMessage
@@ -12,15 +12,15 @@
 
   class Chat {
     constructor(options) {
-      this.netService = new chatNetService('https://kovalenkovpu.firebaseio.com/messages.json');
+      this.netService = new ChatNetService("https://kovalenkovpu.firebaseio.com/messages.json");
       
       this.el = options.el;
       
       this.el.classList.add("chat");
       
       this._renderChat(this.el);
-
-      this.netService._pollingDatabase(this._reloadChat);
+      this.netService.pollingDatabase(this._reloadChat);
+      this._scrollingChatDown();
     }
     
     /**
@@ -30,7 +30,7 @@
      */
     _renderChat(elem) {
       let wrapper = document.querySelector(".chat-wrapper");
-      
+
       wrapper.appendChild(elem);
       this._reloadChat(this.data);
     }
@@ -41,20 +41,13 @@
      */
     addMessage(data) {
       if (data.message) {
-        let chat = document.querySelector(".chat");
+        let chat = document.body.querySelector(".chat");
         
         chat.innerHTML += chat_pug(data);
         //отправляет сообщение в БД
-        this.netService._sendMessageXHR(data);
+        this.netService.sendMessageXHR(data);
         chat.scrollTop = chat.scrollHeight;
       }
-    }
-
-    /**
-     * Останавливает опрос сервера
-     */
-    stopPollingDatabase() {
-      clearInterval(this.__pollingID)
     }
     
     /**
@@ -69,6 +62,18 @@
       
       for (let key in data) {
         chat.innerHTML += chat_pug(data[key]);
+      }
+    }
+    
+    /**
+     * Отматывает чат вниз
+     * @private
+     */
+    _scrollingChatDown() {
+      window.onload = () => {
+        let chat = document.body.querySelector(".chat");
+        
+        chat.scrollTop = chat.scrollHeight;
       }
     }
   }
