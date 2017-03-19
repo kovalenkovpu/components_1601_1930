@@ -36,7 +36,6 @@
       xhr.onload = function() {
         //аргумент cb - это объект вида {{...},{...},{...}}
         cb(JSON.parse(xhr.responseText));
-        chat.scrollTop = chat.scrollHeight;
       }
       xhr.send();
     }
@@ -61,6 +60,7 @@
             let chat = document.querySelector(".chat");
             
             reloadCallback(data);
+            chat.scrollTop = chat.scrollHeight;
           }
         });
       }, 1000);
