@@ -1,0 +1,23 @@
+.modal {
+  display: block;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  padding: 30px;
+  box-shadow: 0 6px 10px 0 gray;
+  background-color: #fff;
+}
+
+.modal-info {
+  display: block;
+  margin: 0;
+  padding: 10px;
+}
+
+.modal-login,
+.modal-login__fieldset,
+.modal-login__input {
+  margin: 0;
+}

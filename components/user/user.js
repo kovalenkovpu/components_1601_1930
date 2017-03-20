@@ -3,10 +3,12 @@
   
   //import
   const user_pug = window.user_tmp;
+  const Modal = window.Modal;
   
   class User {
     constructor() {
-      this.username = this._getName();
+      this.modal = new Modal();
+      this.username = this.modal.getModalUsername();
       this.avatar = this._getAvatarImg();
 
       this.chatEl = document.querySelector(".chat-header");
@@ -33,9 +35,7 @@
      * @returns {string} - имя
      */
     _getName() {
-      let tempName = prompt("Введите имя пользователя");
-
-      return (tempName || "Anonim");
+      return ("Anonim");
     }
     
     /**
@@ -77,6 +77,7 @@
       } else {
         loginInput.setAttribute("disabled", "disabled");
         loginInput.setAttribute("value", "Вы вошли как:");
+        userName.textContent = this.username;
       }
     }
   }
