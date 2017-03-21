@@ -16,6 +16,7 @@
     "jshint": "^2.9.4",
     "node-static": "^0.7.9",
     "pug": "^2.0.0-beta11",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "webpack": "^2.2.1"
   }
 }
