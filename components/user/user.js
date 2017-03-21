@@ -3,7 +3,7 @@
   
   //import
   const user_pug = window.user_tmp;
-  
+
   class User {
     constructor() {
       this.username = this._getName();
@@ -12,8 +12,6 @@
       this.chatEl = document.querySelector(".chat-header");
       
       this._createAvatar(this);
-      
-      this._userLogin();
     }
     
     /**
@@ -32,10 +30,8 @@
      * @private
      * @returns {string} - имя
      */
-    _getName() {
-      let tempName = prompt("Введите имя пользователя");
-
-      return (tempName || "Anonim");
+    _getName() {      
+      return "Anonim";
     }
     
     /**
@@ -57,27 +53,15 @@
     
     /**
      * Обрабатывает авторизацию пользователя
-     * @private
      */
-    _userLogin() {
-      let loginForm = this.chatEl.querySelector(".user-login"),
-          loginInput = this.chatEl.querySelector(".user-login__input"),
-          userName = this.chatEl.querySelector(".user-name");
+    userCheckLogin() {
+      let header = document.querySelector(".chat-header"),
+          loginInput = header.querySelector(".user-login__input"),
+          userName = header.querySelector(".user-name");
       
-      if (this.username == "Anonim") {
-        loginForm.addEventListener("submit", (event) => {
-          let newName = document.getElementById("user-login__input").value;
-          
-          event.preventDefault();
-          loginInput.setAttribute("disabled", "disabled");
-          loginInput.value = "Вы вошли как:";
-          this.username = newName;
-          userName.textContent = newName;
-        });
-      } else {
-        loginInput.setAttribute("disabled", "disabled");
-        loginInput.setAttribute("value", "Вы вошли как:");
-      }
+      loginInput.setAttribute("disabled", "disabled");
+      loginInput.setAttribute("value", "Вы вошли как:");
+      userName.textContent = this.username;
     }
   }
   

@@ -1,0 +1,17 @@
+.modal-login {
+  display: block;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -200px;
+  padding: 30px;
+  box-shadow: 0 6px 10px 0 gray;
+  background-color: #fff;
+}
+
+.modal-login__info {
+  margin-bottom: 20px;
+}

@@ -2,6 +2,7 @@
   'use strict';
 
   //import
+  const Modal = window.Modal;
   const Chat = window.Chat;
   const Form = window.Form;
   const Wrapper = window.Wrapper;
@@ -11,24 +12,36 @@
     constructor(options) {
 	  this.el = options.el;
 
-      this._createComponents();
-      this._initMediate();
+      this._createComponents(); 
 	}
     
     /**
-      * Создание и рендер компонент: обертка, чат, форма, юзер
+      * Создание и рендер компонент
       * @private
       */
 	_createComponents() {
       this.wrapper = new Wrapper();
-
-      this.chat = new Chat({
-	  	el: document.createElement("div")
-	  });
-
-	  this.form = new Form();
-
       this.user = new User();
+      this.modal = new Modal();
+      
+      this.__modalForm = document.body.querySelector(".modal-login");
+      this.__modalUsername = this.__modalForm.querySelector(".modal-login__input");
+      
+      this.__modalForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        this.user.username = this.__modalUsername.value;
+        
+        this.chat = new Chat({
+          el: document.createElement("div")
+        });
+                
+        this.form = new Form();
+        this._initMediate();
+        
+        this.modal.hideModal(this.__modalForm);
+
+        this.user.userCheckLogin();
+      });
 	}
 
     /**
@@ -54,14 +67,6 @@
         }
       });
 	}
-    
-    /**
-     * Добавляет возможность создания сообщения из глоб области видимости
-     * @param {[[Type]]} data [[Description]]
-     */
-    addMessage(data) {
-      this.chat.addMessage(data);
-    }
   }
 
   //export

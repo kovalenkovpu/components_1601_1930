@@ -7,6 +7,7 @@
   width: 100vw;
   border-radius: 2px;
   box-shadow: 0 6px 10px 0 gray;
+  opacity: 0.2;
 }
 
 .chat-header {
