@@ -13,10 +13,18 @@
   "author": "Artsiom Mezin, Pavel Kovalenkov",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "jshint": "^2.9.4",
+    "node-sass": "^4.5.1",
     "node-static": "^0.7.9",
     "pug": "^2.0.0-beta11",
     "pug-cli": "^1.0.0-alpha6",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.15.0",
     "webpack": "^2.2.1"
   }
 }
