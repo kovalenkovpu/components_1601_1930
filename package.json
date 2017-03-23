@@ -8,7 +8,7 @@
     "serve": "./node_modules/.bin/static .",
     "pug_tmp": "pug --client components/modal/modal.pug --extension pug.js --name modal_tmp && pug --client components/chat/chat.pug --extension pug.js --name chat_tmp && pug --client components/chat-wrapper/wrapper.pug --extension pug.js --name wrapper_tmp && pug --client components/form/form.pug --extension pug.js --name form_tmp && pug --client components/user/user.pug --extension pug.js --name user_tmp"
   },
-  "keywords": [],
+  "keywords": ["chat", "4at", "чат", "чатик", "free chat", "js chat", "javascript chat"],
   "author": "Pavel Kovalenkov",
   "license": "",
   "devDependencies": {

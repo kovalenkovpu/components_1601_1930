@@ -6,14 +6,16 @@
 
 Simple javascript chat build on ES6 modules. Allows you to 
 
-### ES2015
-### pug
-### node-static
-### firebase DB
-### webpack
+⋅⋅* ES2015
+⋅⋅* pug
+⋅⋅* node-static
+⋅⋅* firebase DB
+⋅⋅* webpack
 
 
 ## Installing and using
+
+Coming soon...
 
 ### To use the chat make sure
 1. You have installed all dependencies
@@ -22,6 +24,7 @@ Simple javascript chat build on ES6 modules. Allows you to
 `this.netService = new ChatNetService(yourFirebaseDBURL)`
 4. Rebuild the app with:
 `npm run start`
+5. You app is available at: `127.0.0.1:8080`
 
 ## License
 
