@@ -9,8 +9,8 @@
     "pug_tmp": "pug --client components/modal/modal.pug --extension pug.js --name modal_tmp && pug --client components/chat/chat.pug --extension pug.js --name chat_tmp && pug --client components/chat-wrapper/wrapper.pug --extension pug.js --name wrapper_tmp && pug --client components/form/form.pug --extension pug.js --name form_tmp && pug --client components/user/user.pug --extension pug.js --name user_tmp"
   },
   "keywords": [],
-  "author": "Artsiom Mezin, Pavel Kovalenkov",
-  "license": "ISC",
+  "author": "Pavel Kovalenkov",
+  "license": "",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
