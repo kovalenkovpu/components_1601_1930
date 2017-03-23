@@ -1,7 +1,7 @@
 "use strict";
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].css"
+    filename: "styles.css"
 });
 
 module.exports = {
@@ -10,8 +10,8 @@ module.exports = {
     styles: './components/app/app.scss'
   },
   output: {
-    path: 'build',
-    filename: 'app.build.js'
+    path: __dirname + '/build',
+    filename: '[name].build.js'
   },
   module: {
     rules: [
