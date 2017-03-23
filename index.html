@@ -18,15 +18,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
    
-    <link rel="stylesheet" href="components/clock/clock.css" />
-    <link rel="stylesheet" href="components/chat/chat.css" />
-    <link rel="stylesheet" href="components/form/form.css" />
-    <link rel="stylesheet" href="components/chat-wrapper/wrapper.css" />
-    <link rel="stylesheet" href="components/user/user.css" />
-    <link rel="stylesheet" href="components/modal/modal.css" />
+    <link rel="stylesheet" href="build/styles.css" />
+    
   </head>
   <body>
-    
     <div class="app"></div>
     
     <script src="components/modal/modal.pug.js"></script>
@@ -34,29 +29,13 @@
     <script src="components/form/form.pug.js"></script>
     <script src="components/chat/chat.pug.js"></script>
     <script src="components/user/user.pug.js"></script>
-
-    <script src="components/modal/modal.js"></script>
-    <script src="components/chat-wrapper/wrapper.js"></script>
-    <script src="net_modules/chatService.js"></script>
-    <script src="components/chat/chat.js"></script>
-    <script src="components/form/form.js"></script>
-    <script src="components/user/user.js"></script>
-    <script src="components/app/app.js"></script>
+    
+    <script src="build/app.build.js"></script>
 
     <!-- Application start -->
     <script>
       "use strict";
-        //[-]TODO - доработать класс User
-        //[+]TODO - избавиться от лишней перезагрузки чата
-
-        //[+]TODO - подключить БД
-        //[+]TODO - научить чат отправлять данные в БД
-        //[+]TODO - научить чат получать данные из БД
-        
-        //[+]TODO - учесть переносы на новую строку
-        //[+]TODO - подсказки
-        //[+]TODO - реализовать reply
-
+      
       new window.App({
         el: document.querySelector(".app")
       });

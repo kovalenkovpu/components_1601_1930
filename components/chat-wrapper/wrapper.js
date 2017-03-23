@@ -1,29 +1,25 @@
-(function() {
-  "use strict";
+const wrapper_pug = window.wrapper_tmp;
   
-  const wrapper_pug = window.wrapper_tmp;
-  
-  class Wrapper {
-    constructor(options) {
-      document.body.innerHTML = wrapper_pug();
-      
-      this.el = document.body.querySelector(".chat-wrapper");
-    }
+class Wrapper {
+  constructor(options) {
+    document.body.innerHTML = wrapper_pug();
     
-    //устаревший функционал
-    /**
-     * Добавление хэдера чата
-     * @param {object} DOM element
-     */
-    _createChatHeader(elem) {
-      let header = document.createElement("div");
-      
-      header.classList.add("chat-header");
-      header.innerHTML = "<h3>Чат v.0.1.1</h3>";
-      elem.appendChild(header);
-    }
+    this.el = document.body.querySelector(".chat-wrapper");
   }
+  
+  //устаревший функционал
+  /**
+   * Добавление хэдера чата
+   * @param {object} DOM element
+   */
+  _createChatHeader(elem) {
+    let header = document.createElement("div");
     
-  //export
-  window.Wrapper = Wrapper;
-})();
+    header.classList.add("chat-header");
+    header.innerHTML = "<h3>Чат v.0.1.1</h3>";
+    elem.appendChild(header);
+  }
+}
+    
+//export
+export default Wrapper;

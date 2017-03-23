@@ -6,16 +6,23 @@
   "scripts": {
     "start": "npm run pug_tmp && npm run serve",
     "serve": "./node_modules/.bin/static .",
-    "pug_tmp": "pug --client components/modal/modal.pug --extension pug.js --name modal_tmp && pug --client components/chat/chat.pug --extension pug.js --name chat_tmp && pug --client components/chat-wrapper/wrapper.pug --extension pug.js --name wrapper_tmp && pug --client components/form/form.pug --extension pug.js --name form_tmp && pug --client components/user/user.pug --extension pug.js --name user_tmp",
-    "hint": "jshint components/**/*.js"
+    "pug_tmp": "pug --client components/modal/modal.pug --extension pug.js --name modal_tmp && pug --client components/chat/chat.pug --extension pug.js --name chat_tmp && pug --client components/chat-wrapper/wrapper.pug --extension pug.js --name wrapper_tmp && pug --client components/form/form.pug --extension pug.js --name form_tmp && pug --client components/user/user.pug --extension pug.js --name user_tmp"
   },
   "keywords": [],
   "author": "Artsiom Mezin, Pavel Kovalenkov",
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.9.4",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.1",
     "node-static": "^0.7.9",
     "pug": "^2.0.0-beta11",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.15.0",
+    "webpack": "^2.2.1"
   }
 }

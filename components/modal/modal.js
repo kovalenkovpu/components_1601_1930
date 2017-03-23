@@ -1,27 +1,23 @@
-(function() {
-  "use strict";
-  
-  //import
-  const modal_pug = window.modal_tmp;
-  
-  class Modal {
-    constructor() {
-      document.body.innerHTML += modal_pug();
-      //this._initEvents();
-    }
+//import
+const modal_pug = window.modal_tmp;
 
-    /**
-     * Убирает модалку при сабмите формы
-     * @param {object} modalEl DOM модального окна
-     */
-    hideModal(modalEl) {
-      let wrapper = document.body.querySelector(".chat-wrapper");
-      
-      wrapper.style.opacity = "1";
-      modalEl.style.display = "none";
-    }
+class Modal {
+  constructor() {
+    document.body.innerHTML += modal_pug();
+    //this._initEvents();
   }
-  
-  //export
-  window.Modal = Modal;
-})();
+
+  /**
+   * Убирает модалку при сабмите формы
+   * @param {object} modalEl DOM модального окна
+   */
+  hideModal(modalEl) {
+    let wrapper = document.body.querySelector(".chat-wrapper");
+    
+    wrapper.style.opacity = "1";
+    modalEl.style.display = "none";
+  }
+}
+
+//export
+export default Modal;
