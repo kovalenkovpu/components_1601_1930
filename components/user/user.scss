@@ -18,13 +18,13 @@
   margin: 5px 0;
   background-color: #fff;
   border-radius: 2px;
-}
-
-#user-login__input:disabled {
-  background-color: #9b4dca;
-  color: #fff;
-  text-decoration: underline;
-  border: 0;
+  
+  &:disabled {
+    background-color: #9b4dca;
+    color: #fff;
+    text-decoration: underline;
+    border: 0;
+  }
 }
 
 .user-name {

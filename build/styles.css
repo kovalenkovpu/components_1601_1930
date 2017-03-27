@@ -22,10 +22,9 @@ p {
   /*box-shadow: 0 3px 5px 0 gray;*/
   border-bottom: 1px solid #bababa;
   background-color: #fff; }
-
-.message:hover {
-  border-radius: 3px;
-  background-color: #e3f4f6; }
+  .message:hover {
+    border-radius: 3px;
+    background-color: #e3f4f6; }
 
 .message:hover .message__arrow {
   display: block; }
@@ -63,11 +62,10 @@ p {
   left: 80%;
   height: 20px;
   width: 20px; }
-
-.message__arrow:hover {
-  transform: scale(0.9);
-  transition: 100ms ease-in;
-  cursor: pointer; }
+  .message__arrow:hover {
+    transform: scale(0.9);
+    transition: 100ms ease-in;
+    cursor: pointer; }
 
 .message__arrow-svg {
   fill: #9b4dca; }
@@ -176,10 +174,9 @@ input.form__button {
   font-weight: 400;
   font-size: 14px;
   border-radius: 2px; }
-
-input.form__button:hover {
-  box-shadow: 0 1px 2px 0 #606c76;
-  transition: 300ms ease-in-out; }
+  input.form__button:hover {
+    box-shadow: 0 1px 2px 0 #606c76;
+    transition: 300ms ease-in-out; }
 
 .form__commentfield-hint {
   display: none;
@@ -226,12 +223,11 @@ input.form__button:hover {
   margin: 5px 0;
   background-color: #fff;
   border-radius: 2px; }
-
-#user-login__input:disabled {
-  background-color: #9b4dca;
-  color: #fff;
-  text-decoration: underline;
-  border: 0; }
+  #user-login__input:disabled {
+    background-color: #9b4dca;
+    color: #fff;
+    text-decoration: underline;
+    border: 0; }
 
 .user-name {
   position: absolute;
