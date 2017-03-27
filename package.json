@@ -4,11 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+		"test": "jshint components/app/app.js",
     "start": "npm run pug_tmp && npm run serve",
     "serve": "./node_modules/.bin/static .",
     "pug_tmp": "pug --client components/modal/modal.pug --extension pug.js --name modal_tmp && pug --client components/chat/chat.pug --extension pug.js --name chat_tmp && pug --client components/chat-wrapper/wrapper.pug --extension pug.js --name wrapper_tmp && pug --client components/form/form.pug --extension pug.js --name form_tmp && pug --client components/user/user.pug --extension pug.js --name user_tmp"
   },
-  "keywords": ["chat", "4at", "чат", "чатик", "free chat", "js chat", "javascript chat"],
+  "keywords": [
+    "chat",
+    "4at",
+    "чат",
+    "чатик",
+    "free chat",
+    "js chat",
+    "javascript chat"
+  ],
+	"jshint": [
+		"components/**/*.js"
+	],
+  "editorconfig-cli": [
+    "*.html",
+    "*.json",
+    "*.js",
+    "components/**/*.js",
+    "components/**/*.{sass,scss}"
+  ],
   "author": "Pavel Kovalenkov",
   "license": "",
   "devDependencies": {
@@ -16,7 +35,9 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "css-loader": "^0.27.3",
+    "editorconfig-cli": "^0.2.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "jshint": "^2.9.4",
     "node-sass": "^4.5.1",
     "node-static": "^0.7.9",
     "pug": "^2.0.0-beta11",
